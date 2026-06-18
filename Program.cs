@@ -35,8 +35,13 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngular", policy =>
     {
-        policy.WithOrigins("http://localhost:4200", "http://localhost:52196")
-               .AllowAnyHeader()
+        policy.WithOrigins(
+    "http://localhost:4200",
+    "http://localhost:52196",
+    "https://metacrm-frontend.vercel.app",
+    "https://metacrm-frontend-7x6n44yxe-behruzbek8214s-projects.vercel.app"
+)
+                .AllowAnyHeader()
               .AllowAnyMethod();
     });
 });
