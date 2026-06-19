@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Npgsql.EntityFrameworkCore.PostgreSQL;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -8,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Database
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"))); ;
 
 // JWT
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");
